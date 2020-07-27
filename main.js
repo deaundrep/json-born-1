@@ -1,16 +1,18 @@
 const fs = require('fs');
-const file = fs.readFileSync('../students.json', 'utf8')
-
-const obj = JSON.parse(file);
-//console.log(obj.students)
 
 const getStudentByIndex = function(index){
+const file = fs.readFileSync('../students.json', 'utf8')
+const obj = JSON.parse(file);
+//console.log(obj)
 return obj.students[index]
 }
 
   const getStudentByName = function(name){
-  for( const item of obj.students){
-    if (item['name'] === name){
+  const file = fs.readFileSync('../students.json', 'utf8')
+  const obj = JSON.parse(file);
+    //console.log(obj)
+    for( const item of obj.students){
+    if (item.name === name){
       return item;
     }
   }
@@ -18,9 +20,12 @@ return obj.students[index]
 } 
 
 const graduateStudent = function(stuName){
+const file = fs.readFileSync('../students.json', 'utf8')
+const obj = JSON.parse(file);
+//console.log(obj)
   for( const item of obj.students){
-    if (stuName === item['name']){
-      item['term']++
+    if (stuName === item.name){
+      item.term++
     }
   }
   const backToJSON = JSON.stringify(obj);
